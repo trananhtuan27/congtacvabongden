@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let ElectricLamp = function (status) {
+        this.status = status;
+        this.turnOff = function () {
+            this.status = false;
+        }
+        this.turnOn = function () {
+            this.status = true;
+        }
+    }
+        let SwichButton = function (satus,lamp) {
+            this.status = satus;
+            this.lamp = lamp;
+            this.getSwichOff = function () {
+                this.status = false;
+                lamp.turnOff();
+            }
+            this.getSwichOn = function () {
+                this.status = true ;
+                lamp.turnOn();
+            }
+    }
+    let den = new ElectricLamp(true);
+let swichbutton = new SwichButton(true, den);
+swichbutton.getSwichOff();
+console.log(den.status);
+swichbutton.getSwichOn();
+console.log(den.status);
+
+</script>
+</body>
+</html>
